@@ -2,7 +2,7 @@ module DocumentCloud
   module API
     module Update
       include DocumentCloud::API::Utils
-      DOCUMENT_PATH = "/documents/"
+      DOCUMENT_PATH = "/documents"
       
       # Update a document
       #
