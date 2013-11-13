@@ -8,6 +8,13 @@ Rubygem for interacting with the DocumentCloud API.
 
 ```gem install documentcloud``` or put in your gemfile and ```bundle install```
 
+then
+
+```ruby
+require 'documentcloud'
+```
+
+
 To authenticate, initialize the configuration and pass in a block:
 
 ``` ruby
