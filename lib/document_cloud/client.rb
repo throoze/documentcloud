@@ -2,12 +2,14 @@ require_relative 'configurable'
 require_relative 'api/utils'
 require_relative 'api/search'
 require_relative 'api/upload'
+require_relative 'api/document'
 
 module DocumentCloud
   class Client
     include DocumentCloud::API::Utils
     include DocumentCloud::API::Search
     include DocumentCloud::API::Upload
+    include DocumentCloud::API::Document
     include DocumentCloud::Configurable
     
     def initialize(options={})

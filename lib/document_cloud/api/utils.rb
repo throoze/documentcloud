@@ -7,7 +7,9 @@ module DocumentCloud
       end
       
       def build_object(object, json)
-        object.new(parse_json json)
+        parsed = parse_json json
+        parsed = parsed[:document] if parsed[:document]
+        object.new(parsed)
       end
       
     end
