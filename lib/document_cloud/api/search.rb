@@ -15,8 +15,9 @@ module DocumentCloud
       # @param options [Boolean] :annotations Include document annotations in the results
       # @param options [Boolean] :data        Include key/value data in the results
       # @param options [Integer] :mentions    Include highlighted mentions of the search phrase
+      # @returns [DocumentCloud::SearchResults] Results of the search
       def search(q, options={})
-        parse_json get(SEARCH_PATH, options.merge(:q => q))
+        build_object DocumentCloud::SearchResults, get(SEARCH_PATH, options.merge(:q => q))
       end
       
     end
