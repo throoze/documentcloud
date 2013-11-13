@@ -1,11 +1,13 @@
 require_relative 'configurable'
 require_relative 'api/utils'
 require_relative 'api/search'
+require_relative 'api/upload'
 
 module DocumentCloud
   class Client
     include DocumentCloud::API::Utils
     include DocumentCloud::API::Search
+    include DocumentCloud::API::Upload
     include DocumentCloud::Configurable
     
     def initialize(options={})
@@ -17,6 +19,10 @@ module DocumentCloud
     # Perform HTTP GET request
     def get(path, params={})
       RestClient.get request_base+path, {params: params}
+    end
+    
+    def post(path, params={})
+      RestClient.post request_base+path, params
     end
     
     private
