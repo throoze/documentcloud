@@ -1,7 +1,7 @@
 DocumentCloud RubyGem
 =====================
 
-Rubygem for interacting with the DocumentCloud API
+Rubygem for interacting with the DocumentCloud API.
 
 
 ## Usage
@@ -44,6 +44,35 @@ remote_doc = DocumentCloud.upload('http://somesite.com/file.pdf', 'Document Titl
 Both return a document object which can then be used.
 
 
-### Information
+### Document
+
+Fetch a document by passing the document id.
+
+``` ruby
+doc = DocumentCloud.document('1234-document-id')
+```
+
+
+
+### Update
+
+Update a document by providing the file id, and any parameters you want to change.
+
+``` ruby
+updated_doc = DocumentCloud.update('1234-file-name', title: 'Changed Document Title')
+```
+
+
+### Destroy
+
+Destroy a document simply by passing the document id.
+
+``` ruby
+DocumentCloud.destroy('1234-file-name')
+```
+
+
+
+## Information
 
 DocumentCloud API info: http://www.documentcloud.org/help/api
