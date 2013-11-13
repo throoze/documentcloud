@@ -36,7 +36,7 @@ puts search.documents[0].pdf
 You can upload a document by providing a ruby File object, or a string with the url to a file.
 
 ``` ruby
-local_doc = DocumentCloud.upload(File.new('/my/file/path.pdf','rb), 'My Document Title')
+local_doc = DocumentCloud.upload(File.new('/my/file/path.pdf','rb'), 'My Document Title')
 
 remote_doc = DocumentCloud.upload('http://somesite.com/file.pdf', 'Document Title')
 ```
