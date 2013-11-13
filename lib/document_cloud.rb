@@ -1,3 +1,7 @@
+require 'rest_client'
+require 'multi_json'
+
+require_relative 'document_cloud/default'
 require_relative 'document_cloud/configurable'
 require_relative 'document_cloud/client'
 
@@ -5,10 +9,21 @@ module DocumentCloud
   class << self
     include DocumentCloud::Configurable
     
+    # Delegate to a DocumentCloud::Client
+    #
+    # @return [DocumentCloud::Client]
     def client
       @client = DocumentCloud::Client.new(credentials) unless defined?(@client)
       @client
     end
+    
+    # Has a client been initialized on the DocumentCloud module?
+    #
+    # @return [Boolean]
+    def client?
+      !!@client
+    end
+    
     
     def respond_to?(method_name, include_private=false)
       client.respond_to?(method_name, include_private) || super

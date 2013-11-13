@@ -5,6 +5,7 @@ require 'document_cloud/version'
 
 Gem::Specification.new do |spec|
   spec.add_dependency "rest-client", "~> 1.6.7"
+  spec.add_dependency 'multi_json', '~> 1.8'
   
   spec.name          = 'DocumentCloud'
   spec.version       = DocumentCloud::Version
