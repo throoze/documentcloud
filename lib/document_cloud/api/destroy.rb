@@ -1,15 +1,14 @@
 module DocumentCloud
   module API
-    module Document
+    module Destroy
       include DocumentCloud::API::Utils
       DOCUMENT_PATH = "/documents"
       
-      # Fetch a document
+      # Delete a document
       #
       # @param id [String] The document id
-      # @returns [DocumentCloud::Document] The fetched document
-      def document(id)
-        build_object DocumentCloud::Document, get(document_path(id))
+      def destroy(id)
+        delete(document_path(id))
       end
       
       private

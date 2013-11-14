@@ -3,6 +3,8 @@ require_relative 'api/utils'
 require_relative 'api/search'
 require_relative 'api/upload'
 require_relative 'api/document'
+require_relative 'api/update'
+require_relative 'api/destroy'
 
 module DocumentCloud
   class Client
@@ -10,6 +12,8 @@ module DocumentCloud
     include DocumentCloud::API::Search
     include DocumentCloud::API::Upload
     include DocumentCloud::API::Document
+    include DocumentCloud::API::Update
+    include DocumentCloud::API::Destroy
     include DocumentCloud::Configurable
     
     def initialize(options={})
@@ -23,8 +27,19 @@ module DocumentCloud
       RestClient.get request_base+path, {params: params}
     end
     
+    # Perform HTTP POST request
     def post(path, params={})
       RestClient.post request_base+path, params
+    end
+    
+    # Perform HTTP PUT request
+    def put(path, params={})
+      RestClient.put request_base+path, params
+    end
+    
+    # Perform HTTP DELETE request
+    def delete(path)
+      RestClient.delete request_base+path
     end
     
     private
