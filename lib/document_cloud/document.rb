@@ -42,5 +42,10 @@ module DocumentCloud
       @resources[:page][:image].gsub(/\{page\}/, page.to_s).gsub(/\{size\}/,size.to_s)
     end
     
+    def entities
+      @entities ||= DocumentCloud.entities(@id)
+      @entities
+    end
+    
   end
 end

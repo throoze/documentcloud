@@ -1,6 +1,8 @@
 DocumentCloud RubyGem
 =====================
 
+[![Gem Version](https://badge.fury.io/rb/documentcloud.png)](http://badge.fury.io/rb/documentcloud)
+
 Rubygem for interacting with the DocumentCloud API
 
 
