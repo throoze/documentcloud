@@ -6,6 +6,7 @@ require_relative 'api/document'
 require_relative 'api/update'
 require_relative 'api/destroy'
 require_relative 'api/entities'
+require_relative 'api/projects'
 
 module DocumentCloud
   class Client
@@ -16,6 +17,7 @@ module DocumentCloud
     include DocumentCloud::API::Update
     include DocumentCloud::API::Destroy
     include DocumentCloud::API::Entities
+    include DocumentCloud::API::Projects
     include DocumentCloud::Configurable
     
     def initialize(options={})
