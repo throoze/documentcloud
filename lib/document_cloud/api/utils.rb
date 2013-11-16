@@ -9,6 +9,7 @@ module DocumentCloud
       def build_object(object, json)
         parsed = parse_json json
         parsed = parsed[:document] if parsed[:document]
+        parsed = parsed[:project]  if parsed[:project]
         parsed = parsed[:projects] if parsed[:projects]
         object.new(parsed)
       end
@@ -16,6 +17,7 @@ module DocumentCloud
       def build_objects(object, json)
         parsed = parse_json json
         parsed = parsed[:document] if parsed[:document]
+        parsed = parsed[:project]  if parsed[:project]
         parsed = parsed[:projects] if parsed[:projects]
         return parsed.map{|o| object.new(o) }
       end
