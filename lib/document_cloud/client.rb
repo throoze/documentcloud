@@ -28,7 +28,16 @@ module DocumentCloud
     
     def initialize(options={})
       DocumentCloud::Configurable.keys.each do |key|
-        instance_variable_set(:"@#{key}", options[key] || DocumentCloud.instance_variable_get(:"@#{key}"))
+        @escaped = false
+        if key == :email or key == :password
+          puts "Key is: #{key}"
+          escaped_value = CGI.escape options[key] unless not options[key]
+          instance_variable_set(:"@#{key}", (escaped_value) || DocumentCloud.instance_variable_get(:"@#{key}"))
+          @escaped = true
+        else
+          puts "Key is not :email or :password, is #{key}"
+          instance_variable_set(:"@#{key}", options[key] || DocumentCloud.instance_variable_get(:"@#{key}"))
+        end
       end
     end
     

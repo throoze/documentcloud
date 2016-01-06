@@ -12,8 +12,11 @@ module DocumentCloud
     # Allow block configuration
     def configure
       yield self
-      format_email!
-      format_password!
+      if not self.escaped
+        format_email!
+        format_password!
+        @escaped = true
+      end
       self
     end
     
